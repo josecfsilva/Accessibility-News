@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>IPS Notícias</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script src="scripts/news.js"></script>
+    <script src="scripts/accessibilityColor.js"></script>
+    <script src="scripts/accessibilityMenu.js"></script>
+    <script src="scripts/accessibilityResize.js"></script>
+    <script src="scripts/accessibilityDragAndDrop.js"></script>
+    <script src="scripts/accessibilityDraggableResizable.js"></script>
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50" onLoad="defaultNews();dragAndDrop();">
+
+    <!-- Menu -->
+    <nav id="menu" class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+        <a id="home" class="navbar-brand" href="#section1">IPS Notícias</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="navbarNavDropdown" class="navbar-collapse collapse">
+
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a id="about" class="nav-link" href="#section2">Sobre</a>
+                </li>
+                <li class="nav-item">
+                    <a id="news" class="nav-link" href="#section3">Notícias</a>
+                </li>
+                <li class="nav-item">
+                    <a id="contacts" class="nav-link" href="#section4">Contactos</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <select id="position" onchange="changeMenuPosition(value);" style="margin-left:10px;">
+                        <option disabled="disabled" selected="selected">Escolha a posição do menu</option>
+                        <option value="bottom">Fundo</option>
+                        <option value="top">Topo</option>
+                    </select>
+                </li>
+
+                <li class="nav-item">
+                    <select id="color" onchange="changeColor(value);" style="margin-left:10px;">
+                        <option disabled="disabled" selected="selected">Escolha a cor de fundo</option>
+                        <option value="1">Branco</option>
+                        <option value="2">Cinzento</option>
+                        <option value="3">Turquesa</option>
+                        <option value="4">Azul</option>
+                        <option value="5">Castanho</option>
+                        <option value="6">Preto</option>
+                    </select>
+                </li>
+
+                <li class="nav-item">
+                    <button id="btn-original" type="button" class="btn btn-outline-light btn-sm" value="Refresh Page"
+                        onClick="if(navigator.onLine) location.reload();" style="margin-left:10px;">Original</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    </br>
+    </br>
+
+    <!-- Section 1 -->
+    <div id="section1" class="container-fluid bg-white" style="padding-top:70px;padding-bottom:90px">
+        <div class="container">
+            <p class="h1" id="homeTitle">IPS Notícias</p>
+
+            </br>
+            </br>
+
+            <div id="demo" class="carousel slide" data-ride="carousel">
+                <ul class="carousel-indicators">
+                    <li data-target="#demo" data-slide-to="0" class="active"></li>
+                    <li data-target="#demo" data-slide-to="1"></li>
+                    <li data-target="#demo" data-slide-to="2"></li>
+                </ul>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="images/lowVision1.jpg" alt="Accessibility">
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="images/lowVision2.jpg" alt="Accessibility">
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="images/lowVision3.jpg" alt="Accessibility">
+                    </div>
+                </div>
+
+                <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+
+                <a class="carousel-control-next" href="#demo" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 2 -->
+    <div id="section2" class="container-fluid bg-white" style="padding-top:70px;padding-bottom:40px">
+        <div class="container">
+            <p class="h1" id="aboutTitle">Sobre</p>
+
+            </br>
+            </br>
+
+            <div id="aboutDescription">
+                <p>Este website permite que <strong>todos</strong> os membros do Instituto Politécnico de Setúbal (IPS)
+                    possam
+                    ler as notícias da sua instituição.</p>
+
+                <p>Tendo em conta os conceitos de <strong>acessibilidade</strong> para utilizadores com <strong>baixa
+                        visão</strong>
+                    foi implementado o seguinte: </p>
+
+                <ul>
+                    <li>Possibilidade de mudar a cor de fundo;</li>
+                    <li>Possibilidade de arrastar e soltar conteúdo ("Drag and Drop");</li>
+                    <li>Possibilidade de redimensionalizar conteúdo;</li>
+                    <li>Possibilidade de aumentar/diminuir o tamanho da fonte do conteúdo textual;</li>
+                </ul>
+            </div>
+
+            </br>
+            </br>
+
+            <a id="aboutLogo" href="http://www.si.ips.pt/ips_si/web_page.inicial" target="_blank">
+                <img src="images/logoIPS.png" class="img-thumbnail" alt="Logo IPS" width="304" height="236">
+            </a>
+
+        </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div id="section3" class="container-fluid bg-white" style="padding-top:70px;padding-bottom:40px">
+        <div class="container">
+            <p class="h1" id="newTitle">Notícias</p>
+
+            </br>
+            </br>
+
+            <button id="btn-add" type="button" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#myModal">
+                Adicionar Notícia
+            </button>
+
+            </br>
+            </br>
+
+            <div id="main"></div>
+
+            <div class="modal fade" id="myModal">
+                <div class="modal-dialog">
+                    <div id="modal" class="modal-content">
+                        <div class="modal-header">
+                            <p id="modalTitle" class="modal-title">Nova Notícia</p>
+                            <button type="button" class="close" data-dismiss="modal">×</button>
+                        </div>
+
+                        <div class="modal-body">
+                            <input type="text" id="newsTitle" placeholder="Introduzir Título da Notícia">
+                            </br>
+                            </br>
+                            <input type="text" id="newsContent" placeholder="Introduzir Conteúdo da Notícia">
+                            </br>
+                            </br>
+                            <div id="main_area1" class="row align-items-center justify-content-center">
+                                <button id="btn-minus" class="btn btn-outline-dark" onclick="changeFontSize(this)"
+                                    style="width: 40px;">-</button>
+                                <button id="btn-plus" class="btn btn-outline-dark" onclick="changeFontSize(this)" style="margin-left:10px;width: 40px;">+</button>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button id="btn-add-modal" type="button" class="btn btn-primary btn-sm" onclick="addNews()">Adicionar</button>
+                            <button id="btn-close-modal" type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 4 -->
+    <div id="section4" class="container-fluid bg-white" style="padding-top:70px;padding-bottom:70px">
+        <div class="container">
+            <p class="h1" id="contactsTitle">Contactos</p>
+
+            </br>
+            </br>
+
+            <div id="card" class="card-deck" style="width:70%">
+                <div id="card-b" class="card">
+                    <a href="https://www.linkedin.com/in/bernardo-freitas-772926141/" target="_blank">
+                        <img class="card-img-top" src="images/bernardoFreitas.jpg" alt="Bernardo Freitas">
+                    </a>
+                    <div class="card-body">
+                        <p id="cardB" class="card-title">João B. Freitas</p>
+                    </div>
+                </div>
+
+                <br>
+
+                <div id="card-j" class="card">
+                    <a href="https://www.linkedin.com/in/josé-silva-929070151/" target="_blank">
+                        <img class="card-img-top" src="images/joseSilva.png" alt="Jose Silva">
+                    </a>
+                    <div class="card-body">
+                        <p id="cardJ" class="card-title">José C. Silva</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<div id="footer">
+    <div id="resizeArea" class="fixed-bottom">
+        <button id="btn-decrease" class="btn btn-outline-dark" onclick="changeFontSize(this)" style="width: 40px; margin-bottom: 20px; margin-top: 20px;">-</button>
+        <button id="btn-increase" class="btn btn-outline-dark" onclick="changeFontSize(this)" style="margin-left:10px;width: 40px;margin-bottom: 20px; margin-top: 20px;">+</button>
+    </div>
+</div>
+
+</html>
