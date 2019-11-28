@@ -2,5 +2,8 @@
     "name": "accessibility-news",
     "version": "0.0.1",
     "description": "",
-    "main": "app.js"
-  }
+    "main": "app.js",
+    "dependencies": {
+        "heroku": "^7.35.0"
+    }
+}
